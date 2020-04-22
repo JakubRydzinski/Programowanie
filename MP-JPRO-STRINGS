@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+#define SIZE 250
+#define ITERACJE 10
+
+void dynamics(char *s){
+  char temp[SIZE]={0};
+  printf("%s\n",s);
+  for(int i=0; i<SIZE;i++){
+    if(*(s+i)=='A'){
+      strcat(temp,"AB");
+    }
+    else if(*(s+i)=='B'){
+      strcat(temp,"A");
+    }
+  }
+  strcpy(s,temp);
+}
+int main(){
+  char algae[SIZE] = {0};
+  strcpy(algae,"A");
+  for(int i=0;i<(ITERACJE+1);i++){
+    printf("%d ",i);
+    dynamics(algae);
+  }
+  return 0;
+}
